@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bookalbum
+  name: basic-php-app
   labels:
-    app: bookalbum
+    app: basic-php-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: bookalbum
+      app: basic-php-app
   template:
     metadata:
       labels:
-        app: bookalbum
+        app: basic-php-app
     spec:
       containers:
-      - name: bookalbum
-        image: sreedocker123/bookmoviealbum:latest
+      - name: basic-php-app
+        image: chakkadocker/basic_php_dockerapp:v1
         ports:
         - containerPort: 80
