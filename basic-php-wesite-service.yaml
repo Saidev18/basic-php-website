@@ -1,21 +1,14 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
-  name: bookalbum
   labels:
     app: bookalbum
+  name: bookalbum
 spec:
-  replicas: 1
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
   selector:
-    matchLabels:
-      app: bookalbum
-  template:
-    metadata:
-      labels:
-        app: bookalbum
-    spec:
-      containers:
-      - name: bookalbum
-        image: sreedocker123/bookmoviealbum:latest
-        ports:
-        - containerPort: 80
+    app: bookalbum
